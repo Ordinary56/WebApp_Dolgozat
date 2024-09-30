@@ -1,0 +1,33 @@
+﻿@page
+@model EpitmenyadoWebApp.Pages.TaxesModel
+@{
+    ViewData["Title"] = "Adók";
+}
+<table class="table">
+<thead>
+    <tr>
+        <th>
+            Adószám
+        </th>
+        <th>
+            Adó összeg
+        </th>
+        
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    @foreach (var item in Model.Taxes)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaxNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalTax)
+            </td>
+            
+        </tr>
+    }
+</tbody>
+</table>
