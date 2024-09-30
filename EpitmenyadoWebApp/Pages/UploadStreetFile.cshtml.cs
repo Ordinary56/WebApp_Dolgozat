@@ -38,23 +38,24 @@ namespace EpitmenyadoWebApp.Pages
             {
                 stream = new(uploadPath, FileMode.Create);
             }
-            string? line;
+            string? line = "";
             string[] lines;
             await Upload!.CopyToAsync(stream);
             stream.Close();
             await stream.DisposeAsync();
             using StreamReader sr = new(uploadPath);
-            _ = sr.ReadLine();
+            await sr.ReadLineAsync();
             while (!sr.EndOfStream)
             {
                 line = sr.ReadLine()!;
                 lines = line!.Split(' ');
+                if (line is null || lines.Length < 4) break;
                 Building building = new()
                 {
                     TaxNumber = int.Parse(lines[0]),
                     StreetName = lines[1],
                     StreetNum = lines[2],
-                    Line = 'A'/*lines[3].First()''*/,
+                    Line = lines[3].First(),
                     Area = int.Parse(lines[4])
                 };
                 await _context.Epitmenyek.AddAsync(building);
