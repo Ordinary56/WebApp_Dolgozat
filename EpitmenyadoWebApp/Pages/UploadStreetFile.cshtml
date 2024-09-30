@@ -1,0 +1,10 @@
+﻿@page
+@model EpitmenyadoWebApp.Pages.UploadStreetFileModel
+@{
+    ViewData["Title"] = "Upload a file";
+}
+<form enctype="multipart/form-data" method="post">
+    <label asp-for="Upload">Upload a file</label>
+    <input type="file" asp-for="Upload"/>
+    <input type="submit" value="Upload file"/>
+</form>

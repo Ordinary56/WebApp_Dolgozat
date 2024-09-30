@@ -7,7 +7,6 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddDbContext<BuildingDbContext>();
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
