@@ -55,7 +55,7 @@ namespace EpitmenyadoWebApp.Pages
                     StreetName = lines[1],
                     StreetNum = lines[2],
                     Line = 'A'/*lines[3].First()''*/,
-                    Area = 10 /*int.Parse(lines[4])*/
+                    Area = int.Parse(lines[4])
                 };
                 await _context.Epitmenyek.AddAsync(building);
             }
